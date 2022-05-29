@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 th:text="${title}"></h1>
+        </div>
+        <div th:if="${customer == null}">
+            <p th:text="${errormessage}"></p>
+        </div>
+        <div th:if="${customer != null}">
+            <p th:text="${message}"></p>
+        </div>
+    </div>
+    <div class="row" th:if="${customer != null}">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>CPF</th>
+                    <th>CEP</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><span th:text="${customer.id}"> Id </span></td>
+                    <td><span th:text="${customer.name}"> Nome </span></td>
+                    <td><span th:text="${customer.email}"> Email </span></td>
+                    <td><span th:text="${customer.cpf}"> CPF </span></td>
+                    <td><span th:text="${customer.cep}"> CEP </span></td>
+                    <td>
+                        <a th:href="@{/customer/updateform/{id}(id=${customer.id})}" class="btn btn-primary">Alterar</a>
+                        <a th:href="@{/customer/delete/{id}(id=${customer.id})}" class="btn btn-danger">Excluir</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <a class="btn btn-primary" href="#" th:href="@{/}"> Voltar à página inicial </a>
+    </div>
+</div>
+</body>
+</html>

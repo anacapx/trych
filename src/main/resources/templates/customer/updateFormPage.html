@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" />
+</head>
+<body>
+<div align="center">
+
+    <div><h2>Alterar Cliente</h2></div>
+
+    <div align="center">
+
+        <form action="#" th:action="@{/customer/update}" th:object="${customer}" method="post">
+
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>CPF</th>
+                    <th>CEP</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--                    <tr th:each="product, itemStat : *{products}">-->
+                <td><input th:field="*{id}" readonly/></td>
+                <td><input th:field="*{name}" /></td>
+                <td><input th:field="*{email}" /></td>
+                <td><input th:field="*{cpf}" type="number" maxlength="11" minlength="11"/></td>
+                <td><input th:field="*{cep}" type="number" maxlength="8" minlength="8"/></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <input class="btn btn-success" type="submit" id="submitButton" th:value="Save">
+            <input class="btn btn-warning" type="reset" id="resetButton" name="reset" th:value="Reset"/>
+
+        </form>
+
+    </div>
+
+    <div class="col-md-6">
+        <a class="btn btn-primary" href="#" th:href="@{/}"> Voltar à página inicial </a>
+    </div>
+
+</div>
+
+
+
+</body>

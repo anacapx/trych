@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" >
+    <title>App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" />
+</head>
+<body>
+
+<div align="center">
+
+    <div><h2>Clientes</h2></div>
+
+    <div class="col-md-6">
+        <a class="btn btn-primary" href="#" th:href="@{/customer/getall}"> Ver todos os clientes </a>
+    </div>
+
+    <div>
+        <form action="#" th:action="@{/customer/getone}" method="get">
+            <p>
+                <label for="idgetone">Id do Cliente: </label>
+                <input type="number" id="idgetone" name="idgetone" required /></br>
+                <button class="btn btn-primary" type="submit">Buscar Cliente</button>
+            </p>
+
+        </form>
+    </div>
+
+    <div class="col-md-6">
+        <a class="btn btn-primary" href="#" th:href="@{/customer/registerform}"> Cadastrar cliente </a>
+    </div>
+
+    <div class="col-md-6">
+        <a class="btn btn-primary" href="#" th:href="@{/}"> Voltar à página inicial </a>
+    </div>
+
+</div>
+
+</body>
+</html>
